@@ -11,8 +11,7 @@ export default async function getStaticProps(context) {
     }
   );
   const data = await res.json();
-  // console.log(data);
-  // return data;
+
   if (!data) {
     return {
       notFound: true,
