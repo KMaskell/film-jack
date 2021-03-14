@@ -1,10 +1,8 @@
 import Head from "next/head";
 import styles from "../styles/Home.module.css";
-// import getDjangoStaticProps from "./api/django";
+import React from 'react';
 
 export default function Home(props) {
-  // console.log(getDjangoStaticProps());
-  // console.log(getDjangoStaticProps.props);
   return (
     <div className={styles.container}>
       <Head>
@@ -13,7 +11,7 @@ export default function Home(props) {
       </Head>
       <main className={styles.main}>
         <h1 className={styles.title}>
-          Welcome to <a href="/kat">film jack</a>
+          Welcome to <a href="./App">filmjack</a>
         </h1>
         <p className={styles.description}>
           Get started by editing{" "}
