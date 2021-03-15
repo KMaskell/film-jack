@@ -7,7 +7,7 @@ const SearchButton = (props)  => {
 
     // takes input, saves to state
     const handleSearchInputChanges = (event) => {
-        setSearchInputValue(event.target.value);
+        setSearchInput(event.target.value);
     }
 
     // resets input field to empty string
@@ -25,11 +25,11 @@ const SearchButton = (props)  => {
    return (
      <form>
        <input
-       value={"avengers"}
+       value={searchInput}
        onChange={handleSearchInputChanges}
        type="text"
        placeholder="Search a film..."/>
-       <input onCLick={callSearchFunction} type="submit" value="FIND MY MOVIE!" />
+       <input onClick={callSearchFunction} type="submit" value="FIND MY MOVIE!" />
      </form>
    )
 }
