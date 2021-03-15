@@ -23,7 +23,7 @@ const SearchButton = (props)  => {
 
 
    return (
-     <form>
+    <form className="search">
        <input
        value={searchInput}
        onChange={handleSearchInputChanges}
