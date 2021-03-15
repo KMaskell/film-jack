@@ -1,12 +1,10 @@
-// fetch request with search param in query string
-
-// const dotenv = require("dotenv").config();
+import React, { useState } from 'react'
 
 export default async (req, res) => {
   const api_key = process.env.REACT_APP_API_KEY;
-  const { search } = req.body;
+  const { searchInput } = req.body;
   const response = await fetch(
-    `https://movie-database-imdb-alternative.p.rapidapi.com/?s=avengers&page=1&r=json`,
+    `https://movie-database-imdb-alternative.p.rapidapi.com/?s=${searchInput}&page=1&r=json`,
     {
       method: "GET",
       headers: {
@@ -15,5 +13,5 @@ export default async (req, res) => {
     }
   );
   const data = await response.json();
-  res.status(200).json({ data });
+  res.status(200).json({ searchInput, data });
 };
