@@ -47,15 +47,13 @@ const search = searchInput => {
           <div>{errorMessage}</div>
         ) : (
             films.map((film, index) => (
-                <div>
-                    <p key={`${index}`}>{film.Title}</p>
-                    <div>
-                        <img width="50"
-                        alt={`(${film.Title} thumbnail)`}
-                        src={film.Poster}
-                        />
-                    </div>
-                </div>
+              <div key={index}>
+                <p>{film.Title}</p>
+                <img width="50"
+                  alt={`(${film.Title} thumbnail)`}
+                  src={film.Poster}
+                />
+          </div>
             ))
         //   console.log("this will render the first movie:", films[0]?.Title ?? "no title")
         )}
