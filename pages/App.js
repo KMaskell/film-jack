@@ -2,8 +2,6 @@ import React, { useState, useEffect } from "react";
 import Header from "../components/Header";
 import SearchButton from "../components/Search-button";
 
-const api_key = ""
-
 const App = () => {
 const [films, setFilms] = useState([]);
 const [loading, setLoading] = useState(null);
@@ -13,29 +11,21 @@ useEffect(() => {
 }, []);
 
 const search = searchInput => {
-    setLoading(true);
-    setErrorMessage(null);
-
-    fetch(
-        `https://movie-database-imdb-alternative.p.rapidapi.com/?s=${searchInput}&page=1&r=json`,
-        {
-          method: "GET",
-          headers: {
-            "x-rapidapi-key": `${api_key}`,
-          },
-        }
-      )
-    .then(response => response.json())
-    .then(jsonResponse => {
-      if (jsonResponse.Response === 'True') {
-        setFilms(jsonResponse.Search);
-        setLoading(false);
-      } else {
-        setErrorMessage(jsonResponse.Error);
-        setLoading(false);
-      }
-    })
-  }
+  setLoading(true);
+  setErrorMessage(null);
+  const body = { searchInput }
+  fetch(`http://localhost:3000/api/search`, { body: JSON.stringify(body), method: 'POST' })
+  .then(response => response.json())
+  .then(jsonResponse => {
+    if (jsonResponse.data.Response === 'True') {
+      setFilms(jsonResponse.data.Search);
+      setLoading(false);
+    } else {
+      setErrorMessage(jsonResponse.Error);
+      setLoading(false);
+    }
+  })
+}
   return (
     <div>
       <Header text="filmjack"/>
