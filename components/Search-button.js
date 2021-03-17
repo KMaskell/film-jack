@@ -1,5 +1,5 @@
-import React from 'react';
-import { useState } from 'react';
+import React, { useState } from 'react';
+import styles from '../styles/Search-button.module.css';
 
 const SearchButton = (props)  => {
     // using state to save search value input
@@ -23,7 +23,7 @@ const SearchButton = (props)  => {
 
 
    return (
-    <form className="search">
+    <form className={styles.search}>
        <input
        value={searchInput}
        onChange={handleSearchInputChanges}
