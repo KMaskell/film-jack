@@ -29,7 +29,7 @@ const SearchButton = (props)  => {
        onChange={handleSearchInputChanges}
        type="text"
        placeholder="Search a film..."/>
-       <input onClick={callSearchFunction} type="submit" value="FIND MY MOVIE!" />
+       <input onClick={callSearchFunction} type="submit" value="FIND MY FILM!" />
      </form>
    )
 }

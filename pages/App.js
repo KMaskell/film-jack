@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Header from "../components/Header";
 import SearchButton from "../components/Search-button";
+import Film from "../components/Film";
 import styles from '../styles/App.module.css';
 
 const App = () => {
@@ -33,20 +34,14 @@ const search = searchInput => {
         <Header text="filmjack"/>
         <SearchButton search={search}/>
       </div>
-      <div className={styles.resultList}>
+      <div className={styles.resultContainer}>
         {loading && !errorMessage ? (
           <span className={styles.loading}>loading...</span>
         ) : errorMessage ? (
           <div>{errorMessage}</div>
         ) : (
             films.map((film, index) => (
-              <div key={index} className={styles.results}>
-                <img width="50"
-                  alt={`(${film.Title} thumbnail)`}
-                  src={film.Poster}
-                />
-                <p className={styles.title}>{film.Title}</p>
-          </div>
+              <Film key={index} film={film}/>
             ))
           // console.log("this will render the first movie:", films[0]?.Title ?? "no title")
         )}
