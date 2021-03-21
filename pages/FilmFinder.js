@@ -4,7 +4,7 @@ import SearchButton from "../components/Search-button";
 import Film from "../components/Film";
 import styles from '../styles/App.module.css';
 
-const App = () => {
+const FilmFinder = () => {
 const [films, setFilms] = useState([]);
 const [loading, setLoading] = useState(null);
 const [errorMessage, setErrorMessage] = useState(null)
@@ -50,4 +50,4 @@ const search = searchInput => {
   );
 };
 
-export default App;
+export default FilmFinder;
