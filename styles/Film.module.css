@@ -7,12 +7,9 @@
     border-style: solid;
     border-radius: 25px;
     border-width: thin;
-    /* border-color:#ff66a3; */
     border-color: white;
     text-align: center;
     background-color: #282c34;
-    /* color: #ff66a3; */
-    /* max-width: 20%; */
     text-transform: capitalize;
     font-size: 12px;
 }
