@@ -9,7 +9,7 @@ const Film = ({ film }) => {
     film.Poster === "N/A" ? DEFAULT_PLACEHOLDER_IMAGE : film.Poster;
     return (
         <div className={styles.filmCard}>
-            <img 
+            <img
             className={styles.thumbnail}
             width="50"
             alt={`(${film.Title} thumbnail)`}
