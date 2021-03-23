@@ -12,7 +12,7 @@ export default function Login(){
 
     return (
         <div>
-            {/* <Header text="filmjack"/> */}
+
             <h2>Login</h2>
             <form>
                 <label>
