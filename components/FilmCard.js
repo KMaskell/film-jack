@@ -1,14 +1,14 @@
 import React from 'react';
-import styles from '../styles/Film.module.css';
+import styles from '../styles/FilmCard.module.css';
 import Image from 'next/image';
 
 const DEFAULT_PLACEHOLDER_IMAGE = `/thumbnailPlaceholder.jpeg`;
 
-const Film = ({ film }) => {
+const FilmCard = ({ film }) => {
     const thumbnail =
     film.Poster === "N/A" ? DEFAULT_PLACEHOLDER_IMAGE : film.Poster;
     return (
-        <div className={styles.filmCard}>
+        <button className={styles.filmCard}>
             <img
             className={styles.thumbnail}
             width="50"
@@ -16,8 +16,9 @@ const Film = ({ film }) => {
             src={thumbnail}
             />
             <p className={styles.title}>{film.Title}</p>
-        </div>
+            {/* <p>{film.Plot}</p> */}
+        </button>
     );
 };
 
-export default Film;
+export default FilmCard;
