@@ -1,13 +1,15 @@
 import React, { useState, useEffect } from "react";
 import Header from "../components/Header";
 import SearchButton from "../components/Search-button";
-import Film from "../components/Film";
+import FilmCard from "../components/FilmCard";
+import FilmDetail from "../components/FilmDetail";
 import styles from '../styles/App.module.css';
 
 const FilmFinder = () => {
 const [films, setFilms] = useState([]);
-const [loading, setLoading] = useState(null);
-const [errorMessage, setErrorMessage] = useState(null)
+const [loading, setLoading] = useState();
+const [errorMessage, setErrorMessage] = useState();
+const [selectedFilm, setSelectedFilm] = useState(null);
 
 useEffect(() => {
 }, []);
@@ -28,23 +30,42 @@ const search = searchInput => {
     }
   })
 }
+
+const onClose = () => {
+  setSelectedFilm(null);
+}
+
+const renderSelectedFilm = () => {
+  if (selectedFilm) {
+        return (
+            <FilmDetail film={selectedFilm} onClose={onClose}/>
+        )
+  }
+}
+
   return (
     <div>
       <div className={styles.fixedSearch}>
         <Header text="filmjack"/>
         <SearchButton search={search}/>
       </div>
-      <div className={styles.resultContainer}>
+      <div className={styles.resultWindow}>
         {loading && !errorMessage ? (
-          <span className={styles.loading}>loading...</span>
+          <span>loading...</span>
         ) : errorMessage ? (
           <div>{errorMessage}</div>
         ) : (
             films.map((film, index) => (
-              <Film key={index} film={film}/>
+              <ul className={styles.filmCardContainers}>
+                <li className={styles.listItem} key={index} onClick={() => {
+                  setSelectedFilm(film);
+                }}>
+                    <FilmCard film={film}/>
+                </li>
+              </ul>
             ))
-          // console.log("this will render the first movie:", films[0]?.Title ?? "no title")
         )}
+          {renderSelectedFilm()}
       </div>
     </div>
   );
