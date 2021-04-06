@@ -38,15 +38,7 @@ const onClose = () => {
 const renderSelectedFilm = () => {
   if (selectedFilm) {
         return (
-          <div className={styles.filmDetail} >
-            <FilmDetail className={styles.filmDetail} film={selectedFilm}/>
-            <button className={styles.closeButton}
-                width="50"
-                alt={"close button"}
-                onClick={onClose}>
-              close
-            </button>
-          </div>
+            <FilmDetail film={selectedFilm} onClose={onClose}/>
         )
   }
 }
@@ -64,13 +56,13 @@ const renderSelectedFilm = () => {
           <div>{errorMessage}</div>
         ) : (
             films.map((film, index) => (
-              <div className={styles.filmCardContainers}>
-                <ul className={styles.listItem} key={index} onClick={() => {
+              <ul className={styles.filmCardContainers}>
+                <li className={styles.listItem} key={index} onClick={() => {
                   setSelectedFilm(film);
                 }}>
                     <FilmCard film={film}/>
-                </ul>
-              </div>
+                </li>
+              </ul>
             ))
         )}
           {renderSelectedFilm()}
