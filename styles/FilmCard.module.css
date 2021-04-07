@@ -11,6 +11,20 @@
     height: 100%;
 }
 
+.filmCard:hover {
+    color: #fff;
+    background-color: #282c34;
+}
+
+.filmCard:active {
+    color: #fff;
+    background-color: #282c34;
+}
+
+.filmCard:focus {
+    outline: none;
+}
+
 .thumbnail {
     border-radius: 5px;
 }
