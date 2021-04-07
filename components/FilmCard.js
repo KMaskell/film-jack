@@ -16,7 +16,6 @@ const FilmCard = ({ film }) => {
             src={thumbnail}
             />
             <p className={styles.title}>{film.Title}</p>
-            {/* <p>{film.Plot}</p> */}
         </button>
     );
 };

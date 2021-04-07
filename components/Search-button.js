@@ -22,16 +22,16 @@ const SearchButton = (props)  => {
     }
 
 
-   return (
-    <form className={styles.search}>
-       <input
-       value={searchInput}
-       onChange={handleSearchInputChanges}
-       type="text"
-       placeholder="Search a film..."/>
-       <input onClick={callSearchFunction} type="submit" value="FIND MY FILM!" />
-     </form>
-   )
+    return (
+        <form className={styles.search}>
+            <input
+                value={searchInput}
+                onChange={handleSearchInputChanges}
+                type="text"
+                placeholder="Search a film..."/>
+            <input onClick={callSearchFunction} type="submit" value="FIND MY FILM!" />
+        </form>
+    )
 }
 
 export default SearchButton
