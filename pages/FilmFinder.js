@@ -45,10 +45,10 @@ const renderSelectedFilm = () => {
 
   return (
     <div>
-      <div className={styles.fixedSearch}>
+      <header className={styles.fixedSearch}>
         <Header text="filmjack"/>
         <SearchButton search={search}/>
-      </div>
+      </header>
       <div className={styles.resultWindow}>
         {loading && !errorMessage ? (
           <span>loading...</span>

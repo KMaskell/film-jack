@@ -12,8 +12,6 @@
     margin-bottom: 25%;
     background-color: #282c34;
     color: white;
-    /* transition: width 2s, height 4s;
-    transition-timing-function: ease-in; */
     transition: width 2s, height 2s, transform 2s;
     text-align: justify;
 }
@@ -39,8 +37,30 @@
     position: absolute;
     top: 0;
     right: 0;
-    background-color: white;
     z-index: 0;
     margin-top: 2%;
-    margin-right: 2%;
+    margin-right: 3%;
+    padding: 12px 38px;
+    font-size: 17px;
+    font-family: "Lucida Console", "Courier New", monospace;
+    color: var(--blue);
+    background-color: #282c34;
+    border: 2px solid var(--blue);
+    border-radius: 24px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.closeButton:hover {
+    color: #fff;
+    background-color: #282c34;
+}
+
+.closeButton:active {
+    color: #fff;
+    background-color: #282c34;
+}
+
+.closeButton:focus {
+    outline: none;
 }
