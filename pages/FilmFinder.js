@@ -6,42 +6,61 @@ import FilmDetail from "../components/FilmDetail";
 import styles from '../styles/App.module.css';
 
 const FilmFinder = () => {
-const [films, setFilms] = useState([]);
-const [loading, setLoading] = useState();
-const [errorMessage, setErrorMessage] = useState();
-const [selectedFilm, setSelectedFilm] = useState(null);
+  const [films, setFilms] = useState([]);
+  const [loading, setLoading] = useState();
+  const [errorMessage, setErrorMessage] = useState();
+  const [selectedFilm, setSelectedFilm] = useState();
+  const [filmDetail, setFilmDetail] = useState();
 
-useEffect(() => {
-}, []);
+  useEffect(() => {
+  }, []);
 
-const search = searchInput => {
-  setLoading(true);
-  setErrorMessage(null);
-  const body = { searchInput }
-  fetch(`http://localhost:3000/api/search`, { body: JSON.stringify(body), method: 'POST' })
-  .then(response => response.json())
-  .then(jsonResponse => {
-    if (jsonResponse.data.Response === 'True') {
-      setFilms(jsonResponse.data.Search);
-      setLoading(false);
-    } else {
-      setErrorMessage(jsonResponse.Error);
-      setLoading(false);
-    }
-  })
-}
-
-const onClose = () => {
-  setSelectedFilm(null);
-}
-
-const renderSelectedFilm = () => {
-  if (selectedFilm) {
-        return (
-            <FilmDetail film={selectedFilm} onClose={onClose}/>
-        )
+  const search = searchInput => {
+    setLoading(true);
+    setErrorMessage(null);
+    const body = { searchInput }
+    fetch(`http://localhost:3000/api/search`, { body: JSON.stringify(body), method: 'POST' })
+    .then(response => response.json())
+    .then(jsonResponse => {
+      if (jsonResponse.data.Response === 'True') {
+        setFilms(jsonResponse.data.Search);
+        setLoading(false);
+      } else {
+        setErrorMessage(jsonResponse.Error);
+        setLoading(false);
+      }
+    })
   }
-}
+
+  const onClose = () => {
+    setSelectedFilm(null);
+    setFilmDetail(null);
+  }
+
+  const searchFilmDetail = imdbId => {
+      setLoading(true);
+      setErrorMessage(null);
+      const body = { imdbId }
+      fetch(`http://localhost:3000/api/searchDetail`, { body: JSON.stringify(body), method: 'POST' })
+      .then(response => response.json())
+      .then(jsonResponse => {
+        if (jsonResponse.data.Response === 'True') {
+          setFilmDetail(jsonResponse.data);
+          setLoading(false);
+        } else {
+          setErrorMessage(jsonResponse.Error);
+          setLoading(false);
+        }
+      })
+  }
+
+  const renderSelectedFilm = () => {
+    if (filmDetail) {
+          return (
+              <FilmDetail film={filmDetail} onClose={onClose}/>
+          )
+    }
+  }
 
   return (
     <div>
@@ -59,6 +78,7 @@ const renderSelectedFilm = () => {
               <ul className={styles.filmCardContainers}>
                 <li className={styles.listItem} key={index} onClick={() => {
                   setSelectedFilm(film);
+                  searchFilmDetail(film.imdbID);
                 }}>
                     <FilmCard film={film}/>
                 </li>
