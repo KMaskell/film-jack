@@ -35,7 +35,7 @@ const FilmDetail = ({ film, onClose }) => {
 export default FilmDetail;
 
 FilmDetail.propTypes = {
-    film: PropTypes.func,
+    film: PropTypes.object,
     onClose: PropTypes.func.isRequired,
 };
 

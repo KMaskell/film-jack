@@ -75,8 +75,8 @@ const FilmFinder = () => {
           <div>{errorMessage}</div>
         ) : (
             films.map((film, index) => (
-              <ul className={styles.filmCardContainers}>
-                <li className={styles.listItem} key={index} onClick={() => {
+              <ul className={styles.filmCardContainers} key={index} >
+                <li className={styles.listItem}onClick={() => {
                   setSelectedFilm(film);
                   searchFilmDetail(film.imdbID);
                 }}>
