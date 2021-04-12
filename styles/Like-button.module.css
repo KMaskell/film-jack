@@ -1,0 +1,16 @@
+.likeButton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 38px;
+    background-color: transparent;
+    color: white;
+    border: 1px solid #bbb;
+    border-radius: 6px;
+    padding: 20px;
+    margin: 5px;
+}
+
+.redHeart {
+    background-color: #282c34;
+}
