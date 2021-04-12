@@ -76,11 +76,11 @@ const FilmFinder = () => {
         ) : (
             films.map((film, index) => (
               <ul className={styles.filmCardContainers}>
-                <li className={styles.listItem} key={index} onClick={() => {
-                  setSelectedFilm(film);
-                  searchFilmDetail(film.imdbID);
-                }}>
-                    <FilmCard film={film}/>
+                <li className={styles.listItem} key={index}>
+                    <FilmCard film={film} onClick={() => {
+                      setSelectedFilm(film);
+                      searchFilmDetail(film.imdbID);
+                    }}/>
                 </li>
               </ul>
             ))
