@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import styles from '../styles/Like-Button.module.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faThumbsUp } from '@fortawesome/free-solid-svg-icons';
 
-const RED_HEART = `/redHeart.png`;
+const HEART_ICON = "/heart-icon.png";
 
 const LikeButton = () => {
     const [likes, setLikes] = useState(0);
@@ -19,7 +21,10 @@ const LikeButton = () => {
     if (likes === 0) {
         return (
             <button className={styles.likeButton} onClick={addLike} >
-                <p>like</p>
+                <FontAwesomeIcon
+                    icon={faThumbsUp}
+                    size="lg"
+                    alt={"info icon"}/>
             </button>
         )
     }
@@ -29,8 +34,8 @@ const LikeButton = () => {
             <button className={styles.likeButton} onClick={removeLike} >
                 <img className={styles.redHeart}
                     width="20"
-                    alt={"red heart"}
-                    src={RED_HEART}>
+                    alt={"heart icon"}
+                    src={HEART_ICON}>
                 </img>
             </button>
         )

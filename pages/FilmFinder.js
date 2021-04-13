@@ -54,7 +54,7 @@ const FilmFinder = () => {
       })
   }
 
-  const renderSelectedFilm = () => {
+  const renderFilmDetail = () => {
     if (filmDetail) {
           return (
               <FilmDetail film={filmDetail} onClose={onClose}/>
@@ -75,7 +75,7 @@ const FilmFinder = () => {
           <div>{errorMessage}</div>
         ) : (
             films.map((film, index) => (
-              <ul className={styles.filmCardContainers}>
+              <ul className={styles.filmCardContainers} key={index} >
                 <li className={styles.listItem} key={index}>
                     <FilmCard film={film} onClick={() => {
                       setSelectedFilm(film);
@@ -85,7 +85,7 @@ const FilmFinder = () => {
               </ul>
             ))
         )}
-          {renderSelectedFilm()}
+          {renderFilmDetail()}
       </div>
     </div>
   );
