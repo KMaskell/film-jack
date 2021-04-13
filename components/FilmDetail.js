@@ -1,27 +1,27 @@
 import React from 'react';
 import styles from '../styles/FilmDetail.module.css';
-import Image from 'next/image';
 import PropTypes from 'prop-types';
 
-const DEFAULT_PLACEHOLDER_IMAGE = `/thumbnailPlaceholder.jpeg`;
+const PLACEHOLDER_IMAGE = `/placeholderThumbnail.jpeg`;
 
 const FilmDetail = ({ film, onClose }) => {
     const poster =
-    film.Poster === "N/A" ? DEFAULT_PLACEHOLDER_IMAGE : film.Poster;
+    film.Poster === "N/A" ? PLACEHOLDER_IMAGE : film.Poster;
+
     return (
         <div className={styles.filmDetail}>
             <button className={styles.closeButton}
                 width="50"
                 alt={"close button"}
                 onClick={onClose}>
-            close
+                close
             </button>
             <p className={styles.whatAMovie}>What a movie!</p>
             <img
-            className={styles.poster}
-            width="50"
-            alt={`(${film.Title} thumbnail)`}
-            src={poster}
+                className={styles.poster}
+                width="50"
+                alt={`(${film.Title} thumbnail)`}
+                src={poster}
             />
             <p className={styles.title}>{film.Title}</p>
             <p className={styles.title}>{film.Year}</p>
@@ -35,7 +35,7 @@ const FilmDetail = ({ film, onClose }) => {
 export default FilmDetail;
 
 FilmDetail.propTypes = {
-    film: PropTypes.func,
+    film: PropTypes.object,
     onClose: PropTypes.func.isRequired,
 };
 

@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import styles from '../styles/Search-button.module.css';
+import PropTypes from 'prop-types';
 
-const SearchButton = (props)  => {
-    // using state to save search value input
+const SearchButton = (search)  => {
     const [searchInput, setSearchInput] = useState("");
 
     // takes input, saves to state
@@ -10,17 +10,15 @@ const SearchButton = (props)  => {
         setSearchInput(event.target.value);
     }
 
-    // resets input field to empty string
     const resetSearchInputField = () => {
         setSearchInput("");
     }
     // gets searchValue from props, preventDefault prevents a browser refresh
     const callSearchFunction = (event) => {
         event.preventDefault();
-        props.search(searchInput);
+        search.search(searchInput);
         resetSearchInputField();
     }
-
 
     return (
         <form className={styles.search}>
@@ -35,3 +33,8 @@ const SearchButton = (props)  => {
 }
 
 export default SearchButton
+
+SearchButton.propTypes = {
+    search: PropTypes.func,
+};
+
