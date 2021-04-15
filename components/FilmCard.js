@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import styles from '../styles/FilmCard.module.css';
 import LikeButton from './Like-button';
 import DetailsButton from './Details-button';
+import CommentButton from './Comment-button';
 
 const PLACEHOLDER_IMAGE = `/placeholderThumbnail.jpeg`;
 
@@ -24,6 +25,7 @@ const FilmCard = ({ film, onClick }) => {
             <div className={styles.interactionBar}>
                 <DetailsButton onClick={onClick}/>
                 <LikeButton/>
+                <CommentButton/>
             </div>
         </div>
     );

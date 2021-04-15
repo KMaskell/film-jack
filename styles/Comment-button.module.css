@@ -1,0 +1,24 @@
+.commentButton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 38px;
+    background-color: transparent;
+    color: white;
+    width: 30%;
+    border: none;
+}
+
+.commentButton:hover {
+    color: #fff;
+    background-color: #282c34;
+}
+
+.commentButton:active {
+    color: #fff;
+    background-color: #282c34;
+}
+
+.commentButton:focus {
+    outline: none;
+}
