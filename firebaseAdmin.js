@@ -1,4 +1,4 @@
-// import serviceAcc from "./secrets.js";
+// import serviceAccount from "./secrets.js";
 
 const admin = require("firebase-admin");
 const serviceAccount = require("./secrets.json");
