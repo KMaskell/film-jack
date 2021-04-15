@@ -5,10 +5,22 @@
     height: 38px;
     background-color: transparent;
     color: white;
-    border: 1px solid #bbb;
-    border-radius: 6px;
-    margin: 0 0 0 3%;
     width: 30%;
+    border: none;
+}
+
+.likeButton:hover {
+    color: #fff;
+    background-color: #282c34;
+}
+
+.likeButton:active {
+    color: #fff;
+    background-color: #282c34;
+}
+
+.likeButton:focus {
+    outline: none;
 }
 
 .redHeart {

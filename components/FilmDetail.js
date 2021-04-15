@@ -1,6 +1,8 @@
 import React from 'react';
 import styles from '../styles/FilmDetail.module.css';
 import PropTypes from 'prop-types';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTimesCircle } from '@fortawesome/free-solid-svg-icons';
 
 const PLACEHOLDER_IMAGE = `/placeholderThumbnail.jpeg`;
 
@@ -10,11 +12,11 @@ const FilmDetail = ({ film, onClose }) => {
 
     return (
         <div className={styles.filmDetail}>
-            <button className={styles.closeButton}
-                width="50"
-                alt={"close button"}
-                onClick={onClose}>
-                close
+            <button className={styles.closeButton} onClick={onClose}>
+                <FontAwesomeIcon
+                    icon={faTimesCircle}
+                    size="lg"
+                    alt={"information icon"}/>
             </button>
             <p className={styles.whatAMovie}>What a movie!</p>
             <img
@@ -23,11 +25,13 @@ const FilmDetail = ({ film, onClose }) => {
                 alt={`(${film.Title} thumbnail)`}
                 src={poster}
             />
-            <p className={styles.title}>{film.Title}</p>
-            <p className={styles.title}>{film.Year}</p>
-            <p className={styles.title}>Director: {film.Director}</p>
-            <p className={styles.title}>Synopsis: {film.Plot}</p>
-            <p className={styles.title}>Starring: {film.Actors}</p>
+            <div className={styles.details}>
+                <p>{film.Title}</p>
+                <p>{film.Year}</p>
+                <p>Director: {film.Director}</p>
+                <p>Synopsis: {film.Plot}</p>
+                <p>Starring: {film.Actors}</p>
+            </div>
         </div>
     );
 };
