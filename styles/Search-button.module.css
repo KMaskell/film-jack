@@ -7,10 +7,22 @@
 }
 
 .search > input {
-margin: 5px;
-border-radius: 25px;
+    margin: 5px;
+    border-radius: 25px;
 }
 
+
 .search > input:hover {
-background-color: #ffffcc;
+    border-radius: 25px;
+}
+
+.search > input:active {
+    color: #fff;
+    border-radius: 25px;
+}
+
+.search > input:focus {
+    outline: none;
+    box-shadow: 0 0 0 2pt#ff66a3;
+    border-radius: 25px;
 }
