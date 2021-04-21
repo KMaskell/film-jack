@@ -1,5 +1,5 @@
 export default async (req, res) => {
-  const api_key = process.env.REACT_APP_API_KEY;
+  const api_key = process.env.MOVIE_DATABASE_API_KEY;
   const { searchInput } = JSON.parse(req.body);
   const response = await fetch(
     `https://movie-database-imdb-alternative.p.rapidapi.com/?s=${searchInput}&page=1&r=json`,

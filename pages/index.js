@@ -1,28 +1,48 @@
-import Header from "../components/Header";
 import styles from "../styles/Home.module.css";
 import React from 'react';
+import { useState } from 'react';
 import Link from "next/link";
-import { useAuth } from "../auth";
+import fire from "../config/fire-config";
 
-export default function Home(props) {
-  const {user} = useAuth();
+export default function Home() {
+  const [notification, setNotification] = useState('');
+  const [loggedIn, setLoggedIn] = useState(false);
+
+  fire.auth()
+  .onAuthStateChanged((user) => {
+    if (user) {
+      setLoggedIn(true)
+    } else {
+      setLoggedIn(false)
+    }
+  })
+
+  const handleLogout = () => {
+    fire.auth()
+      .signOut()
+      .then(() => {
+        setNotification('Logged out')
+        setTimeout(() => {
+          setNotification('')
+        }, 2000)
+      });
+  }
 
     return (
-      <div>
         <div>
           <h2>Welcome to the Homepage.</h2>
-          <p>{`User ID: ${user ? user.uid : "No user signed in"}`}</p>
-          <button disabled={!user}>
-            <Link href="/authenticated">
-              <a>Go to authenticated route</a>
+          {notification}
+          {!loggedIn ?
+          <div>
+            <Link href="users/create-account">
+              <a>Create account </a>
+            </Link> | 
+            <Link href="/users/login">
+              <a> Login</a>
             </Link>
-          </button>
-          <button disabled={user}>
-            <Link href="/login">
-              <a>Login</a>
-            </Link>
-          </button>
+          </div>
+          :
+          <button onClick={handleLogout}>Logout</button>}
         </div>
-      </div>
-    );
+    )
 }
