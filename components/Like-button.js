@@ -1,26 +1,16 @@
-import React, { useState } from "react";
+import React from "react";
+import PropTypes from 'prop-types';
 import styles from '../styles/Like-Button.module.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faThumbsUp } from '@fortawesome/free-solid-svg-icons';
 
 const HEART_ICON = "/heart-icon.png";
 
-const LikeButton = () => {
-    const [likes, setLikes] = useState(0);
+const LikeButton = ({ likeStatus, onClick }) => {
 
-    const addLike = () => {
-        var newCount = likes + 1;
-        setLikes(newCount);
-    }
-
-    const removeLike = () => {
-        var newCount = likes - 1;
-        setLikes(newCount);
-    }
-
-    if (likes === 0) {
+    if (likeStatus === false) {
         return (
-            <button className={styles.likeButton} onClick={addLike} >
+            <button className={styles.likeButton} onClick={onClick}>
                 <FontAwesomeIcon
                     icon={faThumbsUp}
                     size="lg"
@@ -29,9 +19,9 @@ const LikeButton = () => {
         )
     }
 
-    if (likes === 1) {
+    if (likeStatus === true) {
         return (
-            <button className={styles.likeButton} onClick={removeLike} >
+            <button className={styles.likeButton} onClick={onClick}>
                 <img className={styles.redHeart}
                     width="20"
                     alt={"heart icon"}

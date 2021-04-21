@@ -2,15 +2,12 @@ import React, { useState, useEffect } from "react";
 import Header from "../components/Header";
 import SearchButton from "../components/Search-button";
 import FilmCard from "../components/FilmCard";
-import FilmDetail from "../components/FilmDetail";
 import styles from '../styles/App.module.css';
 
 const FilmFinder = () => {
   const [films, setFilms] = useState([]);
   const [loading, setLoading] = useState();
   const [errorMessage, setErrorMessage] = useState();
-  const [selectedFilm, setSelectedFilm] = useState();
-  const [filmDetail, setFilmDetail] = useState();
 
   useEffect(() => {
   }, []);
@@ -32,36 +29,6 @@ const FilmFinder = () => {
     })
   }
 
-  const onClose = () => {
-    setSelectedFilm(null);
-    setFilmDetail(null);
-  }
-
-  const searchFilmDetail = imdbId => {
-      setLoading(true);
-      setErrorMessage(null);
-      const body = { imdbId }
-      fetch(`http://localhost:3000/api/searchDetail`, { body: JSON.stringify(body), method: 'POST' })
-      .then(response => response.json())
-      .then(jsonResponse => {
-        if (jsonResponse.data.Response === 'True') {
-          setFilmDetail(jsonResponse.data);
-          setLoading(false);
-        } else {
-          setErrorMessage(jsonResponse.Error);
-          setLoading(false);
-        }
-      })
-  }
-
-  const renderFilmDetail = () => {
-    if (filmDetail) {
-          return (
-              <FilmDetail film={filmDetail} onClose={onClose}/>
-          )
-    }
-  }
-
   return (
     <div>
       <header className={styles.fixedSearch}>
@@ -77,15 +44,11 @@ const FilmFinder = () => {
             films.map((film, index) => (
               <ul className={styles.filmCardContainers} key={index} >
                 <li className={styles.listItem} key={index}>
-                    <FilmCard film={film} onClick={() => {
-                      setSelectedFilm(film);
-                      searchFilmDetail(film.imdbID);
-                    }}/>
+                    <FilmCard film={film}/>
                 </li>
               </ul>
             ))
         )}
-          {renderFilmDetail()}
       </div>
     </div>
   );
