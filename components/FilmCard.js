@@ -2,11 +2,13 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styles from '../styles/FilmCard.module.css';
 import LikeButton from './Like-button';
+import UnlikeButton from './Unlike-button';
 import DetailsButton from './Details-button';
 
 const PLACEHOLDER_IMAGE = `/placeholderThumbnail.jpeg`;
 
 const FilmCard = ({ film }) => {
+    const isLiked = false;
     const thumbnail =
     film.Poster === "N/A" ? PLACEHOLDER_IMAGE : film.Poster;
 
@@ -23,7 +25,8 @@ const FilmCard = ({ film }) => {
             </button>
             <div className={styles.interactionBar}>
                 <DetailsButton film={film}/>
-                {/* <LikeButton onClick={onClick} likeStatus={likeStatus} /> */}
+                {!isLiked && <LikeButton />}
+                {isLiked && <UnlikeButton />}
             </div>
         </div>
     );
@@ -33,8 +36,6 @@ export default FilmCard;
 
 FilmCard.propTypes = {
     film: PropTypes.object,
-    // onClick: PropTypes.func.isRequired,
-    // likeStatus: PropTypes.bool,
 };
 
 FilmCard.defaultProps = {

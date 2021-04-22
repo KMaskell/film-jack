@@ -44,7 +44,7 @@ const DetailsButton = ({ film }) => {
     }
 
     return (
-        <div>
+        <div >
             <button className={styles.detailsButton} onClick={() => {
                 setSelectedFilm(film);
                 searchFilmDetail(film.imdbID);

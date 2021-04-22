@@ -8,6 +8,7 @@ const FilmFinder = () => {
   const [films, setFilms] = useState([]);
   const [loading, setLoading] = useState();
   const [errorMessage, setErrorMessage] = useState();
+  const [faveFilms, setFaveFilms] = useState([]);
 
   useEffect(() => {
   }, []);
