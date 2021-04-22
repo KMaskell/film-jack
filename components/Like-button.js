@@ -3,9 +3,9 @@ import styles from '../styles/Like-Button.module.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faThumbsUp } from '@fortawesome/free-solid-svg-icons';
 
-const LikeButton = () => {
+const LikeButton = ({ onClick }) => {
     return (
-        <button className={styles.likeButton}>
+        <button className={styles.likeButton} onClick={onClick}>
             <FontAwesomeIcon
                 icon={faThumbsUp}
                 size="lg"

@@ -10,6 +10,8 @@ const FilmFinder = () => {
   const [errorMessage, setErrorMessage] = useState();
   const [faveFilms, setFaveFilms] = useState([]);
 
+  console.log("like - faveFilmsList array", faveFilms);
+
   useEffect(() => {
   }, []);
 
@@ -30,6 +32,17 @@ const FilmFinder = () => {
     })
   }
 
+  const handleLike = film => {
+    setFaveFilms([ ...faveFilms, film.Title]);
+    // console.log("like - faveFilmsList array", faveFilms);
+}
+
+  const handleUnlike = () => {
+      const newList = faveFilms.filter((faveFilm) => film.Title !== faveFilm)
+      setFaveFilms(newList);
+      // console.log("removeLike - faveFilmsList array", faveFilms);
+  }
+
   return (
     <div>
       <header className={styles.fixedSearch}>
@@ -45,7 +58,9 @@ const FilmFinder = () => {
             films.map((film, index) => (
               <ul className={styles.filmCardContainers} key={index} >
                 <li className={styles.listItem} key={index}>
-                    <FilmCard film={film}/>
+                    <FilmCard film={film} onClick={() => {
+                      handleLike(film);
+                    }}/>
                 </li>
               </ul>
             ))

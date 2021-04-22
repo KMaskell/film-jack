@@ -7,7 +7,7 @@ import DetailsButton from './Details-button';
 
 const PLACEHOLDER_IMAGE = `/placeholderThumbnail.jpeg`;
 
-const FilmCard = ({ film }) => {
+const FilmCard = ({ film, onClick }) => {
     const isLiked = false;
     const thumbnail =
     film.Poster === "N/A" ? PLACEHOLDER_IMAGE : film.Poster;
@@ -25,8 +25,8 @@ const FilmCard = ({ film }) => {
             </button>
             <div className={styles.interactionBar}>
                 <DetailsButton film={film}/>
-                {!isLiked && <LikeButton />}
-                {isLiked && <UnlikeButton />}
+                <LikeButton onClick={onClick}/>
+                {/* {isLiked && <UnlikeButton />} */}
             </div>
         </div>
     );
