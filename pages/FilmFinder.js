@@ -1,8 +1,12 @@
-import React, { useState, useEffect } from "react";
-import Header from "../components/Header";
-import SearchButton from "../components/Search-button";
-import FilmCard from "../components/FilmCard";
+import React, { useState, useEffect } from 'react';
+import Header from '../components/Header';
+import SearchButton from '../components/Search-button';
+import DetailsButton from '../components/Details-button';
+import LikeButton from '../components/Like-button';
+import UnlikeButton from '../components/Unlike-button';
 import styles from '../styles/App.module.css';
+
+const PLACEHOLDER_IMAGE = `/placeholderThumbnail.jpeg`;
 
 const FilmFinder = () => {
   const [films, setFilms] = useState([]);
@@ -32,15 +36,17 @@ const FilmFinder = () => {
     })
   }
 
-  const handleLike = film => {
-    setFaveFilms([ ...faveFilms, film.Title]);
-    // console.log("like - faveFilmsList array", faveFilms);
-}
+  // const handleLike = (film) => {
+  //   setFaveFilms([ ...faveFilms, film.Title]);
+  // }
 
-  const handleUnlike = () => {
-      const newList = faveFilms.filter((faveFilm) => film.Title !== faveFilm)
-      setFaveFilms(newList);
-      // console.log("removeLike - faveFilmsList array", faveFilms);
+  // const handleUnlike = () => {
+  //     const newList = faveFilms.filter((faveFilm) => film.Title !== faveFilm)
+  //     setFaveFilms(newList);
+  // }
+
+  const thumbnail = filmPoster => {
+    return ( filmPoster === "N/A" ? PLACEHOLDER_IMAGE : filmPoster )
   }
 
   return (
@@ -58,9 +64,22 @@ const FilmFinder = () => {
             films.map((film, index) => (
               <ul className={styles.filmCardContainers} key={index} >
                 <li className={styles.listItem} key={index}>
-                    <FilmCard film={film} onClick={() => {
-                      handleLike(film);
-                    }}/>
+                <div>
+                  <button className={styles.filmCard}>
+                      <img
+                          className={styles.thumbnail}
+                          width="50"
+                          alt={`(${film.Title} thumbnail)`}
+                          src={thumbnail(film.Poster)}
+                      />
+                      <p className={styles.title}>{film.Title}</p>
+                  </button>
+                  <div className={styles.interactionBar}>
+                      <DetailsButton film={film}/>
+                      <LikeButton />
+                      {/* <UnlikeButton /> */}
+                  </div>
+                </div>
                 </li>
               </ul>
             ))
