@@ -1,16 +1,19 @@
-import React, { useState, useEffect } from "react";
-import Header from "../components/Header";
-import SearchButton from "../components/Search-button";
-import FilmCard from "../components/FilmCard";
-import FilmDetail from "../components/FilmDetail";
+import React, { useState, useEffect } from 'react';
+import Header from '../components/Header';
+import SearchButton from '../components/Search-button';
+import DetailsButton from '../components/Details-button';
+import LikeUnlikeButton from '../components/Like-unlike-button';
 import styles from '../styles/App.module.css';
+
+const PLACEHOLDER_IMAGE = `/placeholderThumbnail.jpeg`;
 
 const FilmFinder = () => {
   const [films, setFilms] = useState([]);
   const [loading, setLoading] = useState();
   const [errorMessage, setErrorMessage] = useState();
-  const [selectedFilm, setSelectedFilm] = useState();
-  const [filmDetail, setFilmDetail] = useState();
+  const [likedFilms, setLikedFilms] = useState({});
+
+  console.log("faveFilmsList array", likedFilms);
 
   useEffect(() => {
   }, []);
@@ -32,34 +35,13 @@ const FilmFinder = () => {
     })
   }
 
-  const onClose = () => {
-    setSelectedFilm(null);
-    setFilmDetail(null);
+  const handleLikeUnlike = (filmId) => {
+    const isAlreadyLiked = likedFilms[filmId] ?? false
+    isAlreadyLiked ? setLikedFilms({ ...likedFilms, [filmId]: false }) : setLikedFilms({ ...likedFilms, [filmId]: true })
   }
 
-  const searchFilmDetail = imdbId => {
-      setLoading(true);
-      setErrorMessage(null);
-      const body = { imdbId }
-      fetch(`http://localhost:3000/api/searchDetail`, { body: JSON.stringify(body), method: 'POST' })
-      .then(response => response.json())
-      .then(jsonResponse => {
-        if (jsonResponse.data.Response === 'True') {
-          setFilmDetail(jsonResponse.data);
-          setLoading(false);
-        } else {
-          setErrorMessage(jsonResponse.Error);
-          setLoading(false);
-        }
-      })
-  }
-
-  const renderFilmDetail = () => {
-    if (filmDetail) {
-          return (
-              <FilmDetail film={filmDetail} onClose={onClose}/>
-          )
-    }
+  const thumbnail = filmPoster => {
+    return ( filmPoster === "N/A" ? PLACEHOLDER_IMAGE : filmPoster )
   }
 
   return (
@@ -77,15 +59,27 @@ const FilmFinder = () => {
             films.map((film, index) => (
               <ul className={styles.filmCardContainers} key={index} >
                 <li className={styles.listItem} key={index}>
-                    <FilmCard film={film} onClick={() => {
-                      setSelectedFilm(film);
-                      searchFilmDetail(film.imdbID);
-                    }}/>
+                <div>
+                  <button className={styles.filmCard}>
+                      <img
+                          className={styles.thumbnail}
+                          width="50"
+                          alt={`(${film.Title} thumbnail)`}
+                          src={thumbnail(film.Poster)}
+                      />
+                      <p className={styles.title}>{film.Title}</p>
+                  </button>
+                  <div className={styles.interactionBar}>
+                      <DetailsButton film={film}/>
+                      {/* {!isLiked && <LikeButton film={film.Title} onClick={handleLike} />} */}
+                      {/* {isLiked && <UnlikeButton film={film.Title} onClick={handleUnlike} />} */}
+                      <LikeUnlikeButton isLiked={likedFilms[film.imdbID]} onClick={() => handleLikeUnlike(film.imdbID)}/>
+                  </div>
+                </div>
                 </li>
               </ul>
             ))
         )}
-          {renderFilmDetail()}
       </div>
     </div>
   );

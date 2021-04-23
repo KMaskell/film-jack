@@ -1,4 +1,4 @@
-.likeButton {
+.unlikeButton {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -9,16 +9,20 @@
     padding-left: 25px;
 }
 
-.likeButton:hover {
+.unlikeButton:hover {
     color: #fff;
     background-color: #282c34;
 }
 
-.likeButton:active {
+.unlikeButton:active {
     color: #fff;
     background-color: #282c34;
 }
 
-.likeButton:focus {
+.unlikeButton:focus {
     outline: none;
+}
+
+.redHeart {
+    background-color: #282c34;
 }

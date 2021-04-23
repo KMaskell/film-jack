@@ -1,0 +1,53 @@
+.likeButton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 38px;
+    background-color: transparent;
+    color: white;
+    border: none;
+    padding-left: 25px;
+}
+
+.likeButton:hover {
+    color: #fff;
+    background-color: #282c34;
+}
+
+.likeButton:active {
+    color: #fff;
+    background-color: #282c34;
+}
+
+.likeButton:focus {
+    outline: none;
+}
+
+.unlikeButton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 38px;
+    background-color: transparent;
+    color: white;
+    border: none;
+    padding-left: 25px;
+}
+
+.unlikeButton:hover {
+    color: #fff;
+    background-color: #282c34;
+}
+
+.unlikeButton:active {
+    color: #fff;
+    background-color: #282c34;
+}
+
+.unlikeButton:focus {
+    outline: none;
+}
+
+.redHeart {
+    background-color: #282c34;
+}
