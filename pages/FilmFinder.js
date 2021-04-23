@@ -2,8 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Header from '../components/Header';
 import SearchButton from '../components/Search-button';
 import DetailsButton from '../components/Details-button';
-import LikeButton from '../components/Like-button';
-import UnlikeButton from '../components/Unlike-button';
+import LikeUnlikeButton from '../components/Like-unlike-button';
 import styles from '../styles/App.module.css';
 
 const PLACEHOLDER_IMAGE = `/placeholderThumbnail.jpeg`;
@@ -12,9 +11,9 @@ const FilmFinder = () => {
   const [films, setFilms] = useState([]);
   const [loading, setLoading] = useState();
   const [errorMessage, setErrorMessage] = useState();
-  const [faveFilms, setFaveFilms] = useState([]);
+  const [likedFilms, setLikedFilms] = useState({});
 
-  console.log("like - faveFilmsList array", faveFilms);
+  console.log("faveFilmsList array", likedFilms);
 
   useEffect(() => {
   }, []);
@@ -36,14 +35,10 @@ const FilmFinder = () => {
     })
   }
 
-  // const handleLike = (film) => {
-  //   setFaveFilms([ ...faveFilms, film.Title]);
-  // }
-
-  // const handleUnlike = () => {
-  //     const newList = faveFilms.filter((faveFilm) => film.Title !== faveFilm)
-  //     setFaveFilms(newList);
-  // }
+  const handleLikeUnlike = (filmId) => {
+    const isAlreadyLiked = likedFilms[filmId] ?? false
+    isAlreadyLiked ? setLikedFilms({ ...likedFilms, [filmId]: false }) : setLikedFilms({ ...likedFilms, [filmId]: true })
+  }
 
   const thumbnail = filmPoster => {
     return ( filmPoster === "N/A" ? PLACEHOLDER_IMAGE : filmPoster )
@@ -76,8 +71,9 @@ const FilmFinder = () => {
                   </button>
                   <div className={styles.interactionBar}>
                       <DetailsButton film={film}/>
-                      <LikeButton />
-                      {/* <UnlikeButton /> */}
+                      {/* {!isLiked && <LikeButton film={film.Title} onClick={handleLike} />} */}
+                      {/* {isLiked && <UnlikeButton film={film.Title} onClick={handleUnlike} />} */}
+                      <LikeUnlikeButton isLiked={likedFilms[film.imdbID]} onClick={() => handleLikeUnlike(film.imdbID)}/>
                   </div>
                 </div>
                 </li>
