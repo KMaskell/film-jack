@@ -13,7 +13,7 @@ const FilmFinder = () => {
   const [errorMessage, setErrorMessage] = useState();
   const [likedFilms, setLikedFilms] = useState({});
 
-  console.log("faveFilmsList array", likedFilms);
+  // console.log("faveFilmsList array", likedFilms);
 
   useEffect(() => {
   }, []);
@@ -71,8 +71,6 @@ const FilmFinder = () => {
                   </button>
                   <div className={styles.interactionBar}>
                       <DetailsButton film={film}/>
-                      {/* {!isLiked && <LikeButton film={film.Title} onClick={handleLike} />} */}
-                      {/* {isLiked && <UnlikeButton film={film.Title} onClick={handleUnlike} />} */}
                       <LikeUnlikeButton isLiked={likedFilms[film.imdbID]} onClick={() => handleLikeUnlike(film.imdbID)}/>
                   </div>
                 </div>
