@@ -1,9 +1,33 @@
-.fixedSearch {
+.wrapper {
     position: fixed;
-    top: 0;
     width: 100%;
-    background-color: white;
-    padding-bottom: 10px;
+}
+
+.navBar {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    margin-bottom: none;
+    color: white;
+    list-style: none;
+}
+
+.navBarItem {
+    padding-left: 2%;
+    padding-right: 2%;
+    max-width: 20%;
+    background-color: transparent;
+    color: white;
+    cursor: pointer;
+    border: none;
+    font-family: inherit;
+    font-size: inherit;
+    /* font-weight: lighter; */
+    text-align: center;
+}
+
+.navBarItem:hover {
+    color: #ff66a3;
 }
 
 .resultWindow {
