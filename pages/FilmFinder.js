@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import Header from '../components/Header';
 import SearchButton from '../components/Search-button';
 import DetailsButton from '../components/Details-button';
 import LikeUnlikeButton from '../components/Like-unlike-button';
@@ -13,7 +12,7 @@ const FilmFinder = () => {
   const [errorMessage, setErrorMessage] = useState();
   const [likedFilms, setLikedFilms] = useState({});
 
-  // console.log("faveFilmsList array", likedFilms);
+  console.log("faveFilmsList array", likedFilms);
 
   useEffect(() => {
   }, []);
@@ -45,11 +44,8 @@ const FilmFinder = () => {
   }
 
   return (
-    <div>
-      <header className={styles.fixedSearch}>
-        <Header text="filmjack"/>
-        <SearchButton search={search}/>
-      </header>
+    <div className={styles.wrapper}>
+      <SearchButton search={search}/>
       <div className={styles.resultWindow}>
         {loading && !errorMessage ? (
           <span>loading...</span>
