@@ -27,7 +27,7 @@ const SearchButton = (search)  => {
                 onChange={handleSearchInputChanges}
                 type="text"
                 placeholder="Search a film..."/>
-            <input onClick={callSearchFunction} type="submit" value="FIND MY FILM!" />
+            <input onClick={callSearchFunction} type="submit" value="Find My Film!" />
         </form>
     )
 }
