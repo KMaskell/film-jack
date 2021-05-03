@@ -6,38 +6,36 @@ import Header from "../components/Header";
 
 export default function Login(){
     firebaseClient();
-    // const toast = useToast();
     const [email, setEmail] = useState("");
-    const [pass, setPass] = useState("");
+    const [password, setPassword] = useState("");
 
     return (
         <div>
-
             <h2>Login</h2>
             <form>
                 <label>
                     Email address
                 </label>
                 <input
-                    onChange={(e) => setEmail(e.target.value)}
-                    type="email"
-                    id={"emailAddress"}
-                    value={email} />
+                onChange={(e) => setEmail(e.target.value)}
+                type="email"
+                id={"emailAddress"}
+                value={email} />
             </form>
             <form>
                 <label>
                     Password
                 </label>
                 <input
-                    onChange={(e) => setPass(e.target.value)}
-                    type="password"
-                    id={"pass"}
-                    value={pass} />
+                onChange={(e) => setPassword(e.target.value)}
+                type="password"
+                id={"password"}
+                value={password} />
             </form>
-            <button disabled={email === "" || pass === ""}
+            <button disabled={email === "" || password === ""}
                 onClick={async () => {
                     await firebase
-                    .auth().createUserWithEmailAndPassword(email, pass)
+                    .auth().createUserWithEmailAndPassword(email, password)
                     .then(function() {
                         window.location.href = "/"
                     })
@@ -48,10 +46,10 @@ export default function Login(){
                 }}>
                     Create Account
             </button>
-            <button disabled={email === "" || pass === ""}
+            <button disabled={email === "" || password === ""}
                 onClick={async () => {
                     await firebase
-                    .auth().signInWithEmailAndPassword(email, pass)
+                    .auth().signInWithEmailAndPassword(email, password)
                     .then(function() { window.location.href = "/" })
                     .catch(function (error) {
                         const message = error.message;

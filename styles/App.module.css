@@ -3,6 +3,10 @@
     width: 100%;
 }
 
+.welcome {
+    color: black;
+}
+
 .navBar {
     display: flex;
     flex-direction: row;
@@ -22,7 +26,6 @@
     border: none;
     font-family: inherit;
     font-size: inherit;
-    /* font-weight: lighter; */
     text-align: center;
 }
 
