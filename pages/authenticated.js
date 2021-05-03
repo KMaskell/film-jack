@@ -1,8 +1,10 @@
 import React from 'react';
+import NavBar from '../components/NavBar';
 import nookies from "nookies";
 import { verifyIdToken } from "../firebaseAdmin";
 import firebaseClient from "../firebaseClient";
 import firebase from "firebase/app";
+
 
 function Authenticated({session}) {
     firebaseClient();
@@ -10,16 +12,16 @@ function Authenticated({session}) {
         return(
             <div>
                 <h2>
-                    Authenticated
+                    You are now authenticated!
                 </h2>
-                <p>{session}</p>
-                <p>You can do anything now you are authenticated</p>
-                <button onClick={async () => {
+                <NavBar session={{session}}/>
+                {/* <p>{session}</p> */}
+                {/* <button onClick={async () => {
                     await firebase
                     .auth()
                     .signOut();
                     window.location.href = "/"
-                }}>Sign out</button>
+                }}>Sign out</button> */}
             </div>
         )
     } else {

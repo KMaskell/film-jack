@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import NavBar from '../components/NavBar';
 import SearchButton from '../components/Search-button';
 import DetailsButton from '../components/Details-button';
 import LikeUnlikeButton from '../components/Like-unlike-button';
@@ -45,6 +46,7 @@ const FilmFinder = () => {
 
   return (
     <div className={styles.wrapper}>
+      <NavBar/>
       <SearchButton search={search}/>
       <div className={styles.resultWindow}>
         {loading && !errorMessage ? (
