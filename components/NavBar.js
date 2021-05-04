@@ -2,13 +2,11 @@ import React from 'react';
 import { useRouter } from 'next/router';
 import Link from "next/link";
 import styles from '../styles/Navbar.module.css';
-import firebaseClient from "../firebaseClient";
 import firebase from "firebase/app";
 
-const NavBar = ({session}) => {
+const NavBar = () => {
     const router = useRouter();
     const page = router.pathname;
-    console.log({session})
 
     return (
         <nav>
