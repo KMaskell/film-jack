@@ -7,22 +7,22 @@ export default function Home(props) {
   const {user} = useAuth();
 
     return (
-      <div>
+      <div className={styles.wrapper} >
         {console.log("this is the user", user)}
-        <p>{`Welcome ${user ? user.email : "no-one's signed in at the moment."}`}</p>
+        <p>{`Welcome, ${user ? user.email : "no-one's signed in at the moment"}...`}</p>
         {user &&
           <div className={styles.auth}>
-            <button >
+            <button className={styles.button} >
               <Link href="/authenticated">
-                <a>Let's go the authenticated route</a>
+                <a>Go authenticated route</a>
               </Link>
             </button>
           </div>
         }
         {!user &&
-          <button className={styles.loginButton} >
+          <button className={styles.button} >
             <Link href="/login">
-              <a>Login</a>
+              <a>login</a>
             </Link>
           </button>
         }

@@ -11,17 +11,8 @@ function Authenticated({session}) {
     if(session){
         return(
             <div>
-                <h2>
-                    You are now authenticated!
-                </h2>
+                <h3>(you are now authenticated)</h3>
                 <NavBar session={{session}}/>
-                {/* <p>{session}</p> */}
-                {/* <button onClick={async () => {
-                    await firebase
-                    .auth()
-                    .signOut();
-                    window.location.href = "/"
-                }}>Sign out</button> */}
             </div>
         )
     } else {

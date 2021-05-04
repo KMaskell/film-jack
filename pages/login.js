@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import firebaseClient from "../firebaseClient";
 import firebase from "firebase/app";
 import "firebase/auth";
-import Header from "../components/Header";
+import styles from '../styles/Login.module.css';
 
 export default function Login(){
     firebaseClient();
@@ -10,54 +10,54 @@ export default function Login(){
     const [password, setPassword] = useState("");
 
     return (
-        <div>
-            <h2>Login</h2>
-            <form>
-                <label>
-                    Email address
-                </label>
+        <div className={styles.wrapper}>
+            <h3>let's create an account or log you in...</h3>
+            <form className={styles.inputField}>
                 <input
+                className={styles.input}
+                placeholder="Email"
                 onChange={(e) => setEmail(e.target.value)}
                 type="email"
                 id={"emailAddress"}
                 value={email} />
             </form>
-            <form>
-                <label>
-                    Password
-                </label>
+            <form className={styles.inputField} >
                 <input
+                className={styles.input}
+                placeholder="Password"
                 onChange={(e) => setPassword(e.target.value)}
                 type="password"
                 id={"password"}
                 value={password} />
             </form>
-            <button disabled={email === "" || password === ""}
-                onClick={async () => {
-                    await firebase
-                    .auth().createUserWithEmailAndPassword(email, password)
-                    .then(function() {
-                        window.location.href = "/"
-                    })
-                    .catch(function (error) {
-                        const message = error.message;
-                    console.log("this is the error message:", message)
-                    })
-                }}>
-                    Create Account
-            </button>
-            <button disabled={email === "" || password === ""}
-                onClick={async () => {
-                    await firebase
-                    .auth().signInWithEmailAndPassword(email, password)
-                    .then(function() { window.location.href = "/" })
-                    .catch(function (error) {
-                        const message = error.message;
+            <div className={styles.accountButtons} >
+                <button className={styles.button} disabled={email === "" || password === ""}
+                    onClick={async () => {
+                        await firebase
+                        .auth().createUserWithEmailAndPassword(email, password)
+                        .then(function() {
+                            window.location.href = "/"
+                        })
+                        .catch(function (error) {
+                            const message = error.message;
                         console.log("this is the error message:", message)
-                    })
-                }}>
-                    Login
-            </button>
+                        })
+                    }}>
+                        create account
+                </button>
+                <button className={styles.button} disabled={email === "" || password === ""}
+                    onClick={async () => {
+                        await firebase
+                        .auth().signInWithEmailAndPassword(email, password)
+                        .then(function() { window.location.href = "/" })
+                        .catch(function (error) {
+                            const message = error.message;
+                            console.log("this is the error message:", message)
+                        })
+                    }}>
+                        login
+                </button>
+            </div>
         </div>
     )
 }
