@@ -26,7 +26,7 @@ const SearchButton = (search)  => {
                 value={searchInput}
                 onChange={handleSearchInputChanges}
                 type="text"
-                placeholder="Search a film..."/>
+                placeholder="Search for a film..."/>
             <input className={styles.submit} onClick={callSearchFunction} type="submit"/>
         </form>
     )

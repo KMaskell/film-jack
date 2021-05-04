@@ -11,17 +11,21 @@ import styles from '../styles/App.module.css';
 const PLACEHOLDER_IMAGE = `/placeholderThumbnail.jpeg`;
 
 const FilmFinder = () => {
-  firebaseClient();
   const [films, setFilms] = useState([]);
   const [loading, setLoading] = useState();
   const [errorMessage, setErrorMessage] = useState();
   const [likedFilms, setLikedFilms] = useState({});
   const database = firebase.firestore()
+  const thumbnail = filmPoster => {
+    return ( filmPoster === "N/A" ? PLACEHOLDER_IMAGE : filmPoster )
+  }
 
   // console.log("faveFilmsList array", likedFilms);
 
   useEffect(() => {
   }, []);
+
+  firebaseClient();
 
   const search = searchInput => {
     setLoading(true);
@@ -68,10 +72,6 @@ const FilmFinder = () => {
         console.error("Error writing film: ", error);
       });
     }
-  }
-
-  const thumbnail = filmPoster => {
-    return ( filmPoster === "N/A" ? PLACEHOLDER_IMAGE : filmPoster )
   }
 
   return (
