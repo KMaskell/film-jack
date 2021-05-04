@@ -3,17 +3,22 @@ import NavBar from '../components/NavBar';
 import SearchButton from '../components/Search-button';
 import DetailsButton from '../components/Details-button';
 import LikeUnlikeButton from '../components/Like-unlike-button';
+import firebase from "firebase/app";
+import firebaseClient from "../firebaseClient";
+import 'firebase/firestore';
 import styles from '../styles/App.module.css';
 
 const PLACEHOLDER_IMAGE = `/placeholderThumbnail.jpeg`;
 
 const FilmFinder = () => {
+  firebaseClient();
   const [films, setFilms] = useState([]);
   const [loading, setLoading] = useState();
   const [errorMessage, setErrorMessage] = useState();
   const [likedFilms, setLikedFilms] = useState({});
+  const database = firebase.firestore()
 
-  console.log("faveFilmsList array", likedFilms);
+  // console.log("faveFilmsList array", likedFilms);
 
   useEffect(() => {
   }, []);
@@ -35,9 +40,34 @@ const FilmFinder = () => {
     })
   }
 
-  const handleLikeUnlike = (filmId) => {
-    const isAlreadyLiked = likedFilms[filmId] ?? false
-    isAlreadyLiked ? setLikedFilms({ ...likedFilms, [filmId]: false }) : setLikedFilms({ ...likedFilms, [filmId]: true })
+  const handleLikeUnlike = (film) => {
+    const isAlreadyLiked = likedFilms[film.imdbID] ?? false
+    if (isAlreadyLiked) {
+      setLikedFilms({ ...likedFilms, [film.imdbID]: false })
+      database.collection('filmjack')
+      .doc("my-fave-films")
+      .update({[film.imdbID]: firebase.firestore.FieldValue.delete()
+      })
+      .then(() => {
+        console.log("Fave film successfully deleted!");
+      })
+      .catch((error) => {
+        console.error("Error removing film: ", error);
+      });
+    } else  {
+      setLikedFilms({ ...likedFilms, [film.imdbID]: true })
+      database.collection('filmjack')
+      .doc("my-fave-films")
+      .set({
+        [film.imdbID]: film.Title,
+      }, { merge: film.Title, })
+      .then(() => {
+        console.log("Fave film successfully written!");
+      })
+      .catch((error) => {
+        console.error("Error writing film: ", error);
+      });
+    }
   }
 
   const thumbnail = filmPoster => {
@@ -69,7 +99,7 @@ const FilmFinder = () => {
                   </button>
                   <div className={styles.interactionBar}>
                       <DetailsButton film={film}/>
-                      <LikeUnlikeButton isLiked={likedFilms[film.imdbID]} onClick={() => handleLikeUnlike(film.imdbID)}/>
+                      <LikeUnlikeButton isLiked={likedFilms[film.imdbID]} onClick={() => handleLikeUnlike(film)}/>
                   </div>
                 </div>
                 </li>
