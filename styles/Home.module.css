@@ -135,11 +135,17 @@
 }
 
 .button {
-  /* margin: 0 2% 0 2%; */
   background-color: transparent;
   color: white;
   cursor: pointer;
   border: none;
+  border-left-width: 1px;
+  border-left-style: solid;
+  border-left-color: white;
+  border-right-width: 1px;
+  border-right-style: solid;
+  border-right-color: white;
+  padding: 0 20px 0 20px;
   font-family: inherit;
   font-size: inherit;
   text-align: center;

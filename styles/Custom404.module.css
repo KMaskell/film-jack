@@ -2,11 +2,9 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    text-align: centre;
 }
 
 .darth {
-    margin-top: 3%;
     border-radius: 25px;
 }
 
@@ -18,10 +16,16 @@
     background-color: transparent;
     color: white;
     cursor: pointer;
-    border: none;
     font-family: inherit;
     font-size: inherit;
     text-align: center;
+    border: none;
+    border-left-width: 1px;
+    border-left-style: solid;
+    border-left-color: white;
+    border-right-width: 1px;
+    border-right-style: solid;
+    border-right-color: white;
 }
 
 .button:hover {

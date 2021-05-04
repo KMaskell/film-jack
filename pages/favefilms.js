@@ -5,13 +5,16 @@ import firebaseClient from "../firebaseClient";
 import 'firebase/firestore';
 import styles from '../styles/FaveFilms.module.css';
 
+const PLACEHOLDER_IMAGE = `/placeholderThumbnail.jpeg`;
+
 const FaveFilms = () => {
     const database = firebase.firestore()
+    const _ = require("lodash");
     const docRef = database.collection("filmjack").doc("my-fave-films");
     const [faveFilms, setFaveFilms] = useState({});
     firebaseClient();
 
-    // console.log("This is fave films?", faveFilms);
+    console.log("This is faveFilms nested object: ", faveFilms);
 
     useEffect(() => {
         docRef.get().then((doc) => {
@@ -26,10 +29,29 @@ const FaveFilms = () => {
         });
     }, []);
 
+    const films = Object.keys(faveFilms).map(filmKey => {
+        const poster = faveFilms[filmKey].thumbnail === "N/A" ? PLACEHOLDER_IMAGE : faveFilms[filmKey].thumbnail;
+        return (
+            <ul>
+                <li className={styles.favefilm}>
+                    <img
+                        width="150"
+                        alt={`(${filmKey} thumbnail)`}
+                        src={poster}
+                    />
+                    <div className={styles.faveFilmText}>
+                        <p>{filmKey}</p>
+                        <p>{faveFilms[filmKey].year}</p>
+                    </div>
+                </li>
+            </ul>
+        )
+    });
+
     return (
         <div>
             <NavBar/>
-            <div>Hello</div>
+            {films}
         </div>
     )
 }

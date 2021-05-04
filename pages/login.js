@@ -11,7 +11,7 @@ export default function Login(){
 
     return (
         <div className={styles.wrapper}>
-            <h3>let's create an account or log you in...</h3>
+            <h3>Let's create your account or log you in...</h3>
             <form className={styles.inputField}>
                 <input
                 className={styles.input}
@@ -43,7 +43,7 @@ export default function Login(){
                         console.log("this is the error message:", message)
                         })
                     }}>
-                        create account
+                        Create account
                 </button>
                 <button className={styles.button} disabled={email === "" || password === ""}
                     onClick={async () => {
@@ -55,7 +55,7 @@ export default function Login(){
                             console.log("this is the error message:", message)
                         })
                     }}>
-                        login
+                        Login
                 </button>
             </div>
         </div>
