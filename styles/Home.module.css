@@ -122,12 +122,11 @@
   }
 } */
 
-.homepageWrapper {
+.wrapper {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
-
 
 .auth {
   display: flex;
@@ -135,9 +134,18 @@
   align-items: center;
 }
 
-.loginButton {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.button {
+  /* margin: 0 2% 0 2%; */
+  background-color: transparent;
+  color: white;
+  cursor: pointer;
+  border: none;
+  font-family: inherit;
+  font-size: inherit;
+  text-align: center;
+}
+
+.button:hover {
+  color: #ff66a3;
 }
 
