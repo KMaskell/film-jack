@@ -1,0 +1,11 @@
+.favefilm {
+    display: flex;
+    list-style-type: none;
+}
+
+.faveFilmText {
+    display: flex;
+    flex-direction: column;
+    margin: 2% 0 0 5%;
+}
+

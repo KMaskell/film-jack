@@ -14,7 +14,7 @@ export default function Home(props) {
           <div className={styles.auth}>
             <button className={styles.button} >
               <Link href="/authenticated">
-                <a>Go authenticated route</a>
+                <a>go to authenticated route</a>
               </Link>
             </button>
           </div>
@@ -22,7 +22,7 @@ export default function Home(props) {
         {!user &&
           <button className={styles.button} >
             <Link href="/login">
-              <a>login</a>
+              <a>Login</a>
             </Link>
           </button>
         }
