@@ -3,6 +3,7 @@ import NavBar from '../components/NavBar';
 import SearchButton from '../components/Search-button';
 import DetailsButton from '../components/Details-button';
 import LikeUnlikeButton from '../components/Like-unlike-button';
+import CommentButton from '../components/Comment-button';
 import firebase from "firebase/app";
 import firebaseClient from "../firebaseClient";
 import 'firebase/firestore';
@@ -105,6 +106,7 @@ const FilmFinder = () => {
                         <div className={styles.interactionBar}>
                             <DetailsButton film={film}/>
                             <LikeUnlikeButton isLiked={likedFilms[film.imdbID]} onClick={() => handleLikeUnlike(film)}/>
+                            <CommentButton film={film}/>
                         </div>
                         </div>
                         </li>

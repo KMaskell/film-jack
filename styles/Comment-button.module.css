@@ -5,8 +5,8 @@
     height: 38px;
     background-color: transparent;
     color: white;
-    width: 30%;
     border: none;
+    padding-left: 25px;
 }
 
 .commentButton:hover {
