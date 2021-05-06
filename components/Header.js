@@ -13,5 +13,5 @@ const Header = ({ text }) => {
 export default Header;
 
 Header.propTypes = {
-    text: PropTypes.string,
+    text: PropTypes.string.isRequired,
 };

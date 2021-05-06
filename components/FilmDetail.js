@@ -7,8 +7,7 @@ import { faTimesCircle } from '@fortawesome/free-solid-svg-icons';
 const PLACEHOLDER_IMAGE = `/placeholderThumbnail.jpeg`;
 
 const FilmDetail = ({ film, onClose }) => {
-    const poster =
-    film.Poster === "N/A" ? PLACEHOLDER_IMAGE : film.Poster;
+    const poster = film.Poster === "N/A" ? PLACEHOLDER_IMAGE : film.Poster;
 
     return (
         <div className={styles.filmDetail}>
@@ -39,10 +38,6 @@ const FilmDetail = ({ film, onClose }) => {
 export default FilmDetail;
 
 FilmDetail.propTypes = {
-    film: PropTypes.object,
+    film: PropTypes.object.isRequired,
     onClose: PropTypes.func.isRequired,
-};
-
-FilmDetail.defaultProps = {
-    film: undefined,
 };

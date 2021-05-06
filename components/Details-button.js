@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import PropTypes from 'prop-types';
 import styles from '../styles/Details-Button.module.css';
 import FilmDetail from "../components/FilmDetail";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -60,3 +61,7 @@ const DetailsButton = ({ film }) => {
 }
 
 export default DetailsButton;
+
+DetailsButton.propTypes = {
+    film: PropTypes.object.isRequired,
+};

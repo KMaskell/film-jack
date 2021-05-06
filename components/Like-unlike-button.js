@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from 'prop-types';
 import styles from '../styles/LikeUnlikeButton.module.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faThumbsUp } from '@fortawesome/free-solid-svg-icons';
@@ -30,3 +31,8 @@ const LikeUnlikeButton = ({ isLiked, onClick }) => {
 }
 
 export default LikeUnlikeButton;
+
+LikeUnlikeButton.propTypes = {
+    isLiked: PropTypes.bool.isRequired,
+    onClick: PropTypes.func.isRequired,
+};

@@ -21,6 +21,7 @@ const FilmFinder = () => {
     }
 
   // console.log("faveFilmsList array", likedFilms);
+  console.log("films array", films);
 
     useEffect(() => {
     }, []);
