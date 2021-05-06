@@ -1,11 +1,47 @@
-.favefilm {
+.carouselWrapper {
     display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 5%;
+    height: 100%;
+    flex-wrap: wrap-reverse;
+}
+
+.ul {
+    position: relative;
+    display: block;
+    justify-content: center;
+    padding: 0;
     list-style-type: none;
+    transition: transform 500ms;
 }
 
-.faveFilmText {
-    display: flex;
-    flex-direction: column;
-    margin: 2% 0 0 5%;
+.carouselWrapper:focus-within .ul,
+.carouselWrapper:hover .ul {
+    transform: translateX(-25%);
 }
 
+.ul:focus ~ .ul,
+.ul:hover ~ .ul {
+    transform: translate(25%);
+}
+
+.li {
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+}
+
+.li img{
+    display: block;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    max-width: 150px;
+}
+
+.carouselWrapper .ul:focus,
+.carouselWrapper .ul:hover {
+    transform: scale(1.5);
+    z-index: 1;
+}
