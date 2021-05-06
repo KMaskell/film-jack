@@ -3,7 +3,6 @@ import NavBar from '../components/NavBar';
 import nookies from "nookies";
 import { verifyIdToken } from "../firebaseAdmin";
 import firebaseClient from "../firebaseClient";
-import firebase from "firebase/app";
 
 
 function Authenticated({session}) {
@@ -11,7 +10,7 @@ function Authenticated({session}) {
     if(session){
         return(
             <div>
-                <h3>(you are now authenticated)</h3>
+                {/* <h5>{session}</h5> */}
                 <NavBar session={{session}}/>
             </div>
         )
@@ -27,7 +26,7 @@ export async function getServerSideProps(context) {
         const token = await verifyIdToken(cookies.token);
         const {uid, email} = token;
         return {
-            props: {session: `Your email is ${email} and your UID is ${uid}`},
+            props: {session: `Logged in as: ${email}, UID: ${uid}`},
         };
     } catch (err){
         context.res.writeHead(302, {location: "/login"});
