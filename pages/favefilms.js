@@ -9,18 +9,15 @@ const PLACEHOLDER_IMAGE = `/placeholderThumbnail.jpeg`;
 
 const FaveFilms = () => {
     const database = firebase.firestore()
-    const _ = require("lodash");
     const docRef = database.collection("filmjack").doc("my-fave-films");
     const [faveFilms, setFaveFilms] = useState({});
     firebaseClient();
-
-    console.log("This is faveFilms nested object: ", faveFilms);
 
     useEffect(() => {
         docRef.get().then((doc) => {
             if (doc.exists) {
                 setFaveFilms(doc.data())
-                console.log("Document data:", doc.data());
+                console.log("favefilms db object:", doc.data());
             } else {
                 console.log("No such document!");
             }

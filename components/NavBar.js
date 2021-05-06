@@ -9,7 +9,7 @@ const NavBar = () => {
     const page = router.pathname;
 
     return (
-        <nav>
+        <nav className={styles.wrapper}>
             <ol className={styles.navBar}>
                 { page === "/authenticated" &&
                     <li className={styles.navBarItem}>
@@ -39,6 +39,11 @@ const NavBar = () => {
                         </Link>
                     </li>
                 }
+                <li className={styles.navBarItem}>
+                    <Link href="/" >
+                        <a>home</a>
+                    </Link>
+                </li>
                 <li className={styles.navBarItem} onClick={async () => {
                         await firebase
                         .auth()
