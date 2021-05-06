@@ -29,17 +29,13 @@ const FaveFilms = () => {
     const films = Object.keys(faveFilms).map(filmKey => {
         const poster = faveFilms[filmKey].thumbnail === "N/A" ? PLACEHOLDER_IMAGE : faveFilms[filmKey].thumbnail;
         return (
-            <ul>
-                <li className={styles.favefilm}>
+            <ul className={styles.ul}>
+                <li className={styles.li}>
                     <img
                         width="150"
                         alt={`(${filmKey} thumbnail)`}
                         src={poster}
                     />
-                    <div className={styles.faveFilmText}>
-                        <p>{filmKey}</p>
-                        <p>{faveFilms[filmKey].year}</p>
-                    </div>
                 </li>
             </ul>
         )
@@ -48,7 +44,9 @@ const FaveFilms = () => {
     return (
         <div>
             <NavBar/>
-            {films}
+            <div className={styles.carouselWrapper}>
+                {films}
+            </div>
         </div>
     )
 }
