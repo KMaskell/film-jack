@@ -10,14 +10,11 @@ const SearchButton = (search)  => {
         setSearchInput(event.target.value);
     }
 
-    const resetSearchInputField = () => {
-        setSearchInput("");
-    }
     // gets searchValue from props, preventDefault prevents a browser refresh
     const callSearchFunction = (event) => {
         event.preventDefault();
         search.search(searchInput);
-        resetSearchInputField();
+        setSearchInput("");
     }
 
     return (

@@ -1,7 +1,6 @@
 import { AuthProvider } from "../auth";
 import Head from 'next/head'
 import Header from "../components/Header";
-
 import "../styles/globals.css";
 
 // const dotenv = require("dotenv").config();

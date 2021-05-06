@@ -11,7 +11,7 @@ function Authenticated({session}) {
         return(
             <div>
                 {/* <h5>{session}</h5> */}
-                <NavBar session={{session}}/>
+                <NavBar />
             </div>
         )
     } else {
