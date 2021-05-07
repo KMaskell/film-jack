@@ -9,6 +9,8 @@
     "test": "jest"
   },
   "dependencies": {
+    "@firebase/app-types": "^0.6.2",
+    "@firebase/auth-interop-types": "^0.1.6",
     "@fortawesome/fontawesome-free": "^5.15.3",
     "@fortawesome/fontawesome-svg-core": "^1.2.35",
     "@fortawesome/free-solid-svg-icons": "^5.15.3",
