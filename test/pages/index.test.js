@@ -9,7 +9,7 @@ describe("HomePage", () => {
     render(<HomePage />);
 
     const heading = screen.getByText(
-      /Welcome to the Homepage./i
+      /Welcome, no-one's signed in at the moment.../i
     );
 
     expect(heading).toBeInTheDocument();
@@ -18,6 +18,6 @@ describe("HomePage", () => {
   it("should render a Login button", () => {
     render(<HomePage />);
 
-    expect(screen.getByText('Login')).toExist;
+    expect(screen.getByText("Login")).toExist;
   });
 });
