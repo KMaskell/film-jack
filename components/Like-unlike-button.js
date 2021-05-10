@@ -35,6 +35,10 @@ const LikeUnlikeButton = ({ isLiked, onClick }) => {
 export default LikeUnlikeButton;
 
 LikeUnlikeButton.propTypes = {
-	isLiked: PropTypes.bool.isRequired,
+	isLiked: PropTypes.bool,
 	onClick: PropTypes.func.isRequired,
+};
+
+LikeUnlikeButton.defaultProps = {
+	isLiked: false,
 };
