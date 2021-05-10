@@ -1,10 +1,10 @@
 {
-    "compilerOptions": {
-        "baseUrl": ".",
-        "paths": {
-            "@components/*": ["components/*"],
-            "@pages/*": ["pages/*"],
-            "@hooks/*": ["hooks/*"]
-        }
-    }
+	"compilerOptions": {
+		"baseUrl": ".",
+		"paths": {
+			"@components/*": ["components/*"],
+			"@pages/*": ["pages/*"],
+			"@hooks/*": ["hooks/*"]
+		}
+	}
 }
