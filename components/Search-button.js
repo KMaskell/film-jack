@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import styles from "../styles/search-Button.module.css";
+import styles from "./search-Button.module.css";
 import PropTypes from "prop-types";
 
 const SearchButton = (search) => {
