@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import firebaseClient from "../firebaseClient";
 import firebase from "firebase/app";
 import "firebase/auth";
-import styles from "../components/Login.module.css";
+import styles from "../styles/Login.module.css";
 
 export default function Login() {
 	firebaseClient();
