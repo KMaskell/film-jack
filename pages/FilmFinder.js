@@ -6,7 +6,7 @@ import LikeUnlikeButton from "../components/Like-unlike-button";
 import firebase from "firebase/app";
 import firebaseClient from "../firebaseClient";
 import "firebase/firestore";
-import styles from "../styles/App.module.css";
+import styles from "../styles/app.module.css";
 
 const PLACEHOLDER_IMAGE = `/placeholderThumbnail.jpeg`;
 
