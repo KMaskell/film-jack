@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "../styles/Comment-Button.module.css";
+import styles from "./Comment-Button.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faComment } from "@fortawesome/free-solid-svg-icons";
 

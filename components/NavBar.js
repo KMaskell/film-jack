@@ -1,7 +1,7 @@
 import React from "react";
 import { useRouter } from "next/router";
 import Link from "next/link";
-import styles from "../styles/navbar.module.css";
+import styles from "./navbar.module.css";
 import firebase from "firebase/app";
 
 const NavBar = () => {
