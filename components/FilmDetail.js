@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "./filmDetail.module.css";
+import styles from "../styles/filmDetail.module.css";
 import PropTypes from "prop-types";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTimesCircle } from "@fortawesome/free-solid-svg-icons";

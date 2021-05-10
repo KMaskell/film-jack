@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "./header.module.css";
+import styles from "../styles/header.module.css";
 import PropTypes from "prop-types";
 
 const Header = ({ text }) => {
