@@ -19,7 +19,6 @@ const FaveFilms = () => {
 			.then((doc) => {
 				if (doc.exists) {
 					setFaveFilms(doc.data());
-					console.log("favefilms db object:", doc.data());
 				} else {
 					console.log("No such document!");
 				}

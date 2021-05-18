@@ -19,9 +19,6 @@ const FilmFinder = () => {
 		return filmPoster === "N/A" ? PLACEHOLDER_IMAGE : filmPoster;
 	};
 
-	// console.log("faveFilmsList array", likedFilms);
-	console.log("films array", films);
-
 	useEffect(() => {}, []);
 
 	firebaseClient();
