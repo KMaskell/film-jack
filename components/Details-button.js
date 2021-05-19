@@ -40,7 +40,13 @@ const DetailsButton = ({ film }) => {
 
 	const renderFilmDetail = () => {
 		if (filmDetail) {
-			return <FilmDetail film={filmDetail} onClose={onClose} />;
+			return (
+				<FilmDetail
+					className={styles.overlay}
+					film={filmDetail}
+					onClose={onClose}
+				/>
+			);
 		}
 	};
 
