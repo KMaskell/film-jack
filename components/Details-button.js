@@ -38,18 +38,6 @@ const DetailsButton = ({ film }) => {
 		setFilmDetail(null);
 	};
 
-	const renderFilmDetail = () => {
-		if (filmDetail) {
-			return (
-				<FilmDetail
-					className={styles.overlay}
-					film={filmDetail}
-					onClose={onClose}
-				/>
-			);
-		}
-	};
-
 	return (
 		<div>
 			<button
@@ -65,7 +53,9 @@ const DetailsButton = ({ film }) => {
 					alt={"information icon"}
 				/>
 			</button>
-			{renderFilmDetail()}
+			{filmDetail ? (
+				<FilmDetail film={filmDetail} onClose={onClose} />
+			) : null}
 		</div>
 	);
 };
