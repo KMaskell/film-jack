@@ -10,7 +10,7 @@ const FilmDetail = ({ film, onClose }) => {
 	const poster = film.Poster === "N/A" ? PLACEHOLDER_IMAGE : film.Poster;
 
 	return (
-		<div className={styles.filmDetail}>
+		<div className={styles.wrapper}>
 			<button className={styles.closeButton} onClick={onClose}>
 				<FontAwesomeIcon
 					icon={faTimesCircle}
@@ -26,11 +26,13 @@ const FilmDetail = ({ film, onClose }) => {
 				src={poster}
 			/>
 			<div className={styles.details}>
-				<p>{film.Title}</p>
-				<p>{film.Year}</p>
-				<p>Director: {film.Director}</p>
-				<p>Synopsis: {film.Plot}</p>
-				<p>Starring: {film.Actors}</p>
+				<ol>
+					<li>{film.Title}</li>
+					<li>{film.Year}</li>
+					<li>{film.Director}</li>
+					<li>{film.Plot}</li>
+					<li>{film.Actors}</li>
+				</ol>
 			</div>
 		</div>
 	);
