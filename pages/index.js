@@ -1,7 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import { useAuth } from "../auth";
-import styles from "../styles/Home.module.css";
+import styles from "../styles/home.module.css";
 
 export default function Home() {
 	const { user } = useAuth();

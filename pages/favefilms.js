@@ -3,7 +3,7 @@ import NavBar from "../components/NavBar";
 import firebase from "firebase/app";
 import firebaseClient from "../firebaseClient";
 import "firebase/firestore";
-import styles from "../styles/FaveFilms.module.css";
+import styles from "../styles/favefilms.module.css";
 
 const PLACEHOLDER_IMAGE = `/placeholderThumbnail.jpeg`;
 

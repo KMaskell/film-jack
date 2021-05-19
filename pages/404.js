@@ -1,5 +1,5 @@
 import Link from "next/link";
-import styles from "../styles/Custom404.module.css";
+import styles from "../styles/custom404.module.css";
 
 const CUSTOM_404_IMAGE = `/404Darth.jpeg`;
 
