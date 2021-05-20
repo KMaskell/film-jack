@@ -4,7 +4,7 @@ import Header from "../components/Header";
 import "../styles/globals.css";
 
 // const dotenv = require("dotenv").config();
-const _ = require("lodash");
+// const _ = require("lodash");
 
 function MyApp({ Component, pageProps }) {
 	return (
